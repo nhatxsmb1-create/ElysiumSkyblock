@@ -28,7 +28,7 @@ public class CelestialEvent extends IslandWorldEvent {
         for (int i = 0; i < 5; i++) {
             double a = i * (2 * Math.PI / 5);
             Location loc = center.clone().add(Math.cos(a)*15, 10+rng.nextInt(6), Math.sin(a)*15);
-            EnderCrystal c = (EnderCrystal) world.spawnEntity(loc, EntityType.ENDER_CRYSTAL);
+            EnderCrystal c = (EnderCrystal) world.spawnEntity(loc, EntityType.END_CRYSTAL);
             c.setShowingBottom(false);
             crystals.add(c);
         }

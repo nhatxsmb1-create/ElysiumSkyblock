@@ -44,7 +44,9 @@ public abstract class IslandWorldEvent {
     }
 
     protected void broadcastBar(String msg) {
-        onlinePlayers().forEach(p -> p.sendActionBar(msg));
+        onlinePlayers().forEach(p -> p.spigot().sendMessage(
+                net.md_5.bungee.api.ChatMessageType.ACTION_BAR,
+                new net.md_5.bungee.api.chat.TextComponent(msg)));
     }
 
     /** Spawn particle with safe fallback */

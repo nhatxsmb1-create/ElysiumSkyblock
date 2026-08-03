@@ -52,7 +52,7 @@ public class MeteorShowerEvent extends IslandWorldEvent {
 
     private void impact(World world, Location loc, Random rng) {
         sound(loc, Sound.ENTITY_GENERIC_EXPLODE, 1f, 0.7f);
-        fx(loc, Particle.EXPLOSION_HUGE, 3, 0.5, 0.5, 0.5, 0.0);
+        fx(loc, Particle.EXPLOSION_EMITTER, 3, 0.5, 0.5, 0.5, 0.0);
         fx(loc, Particle.LAVA, 10, 0.5, 0.5, 0.5, 0.1);
         broadcast("§6☄ Meteor at §e(" + loc.getBlockX() + ", " + loc.getBlockZ() + ")§6! Grab in §c" + PICKUP_S + "s§6!");
 

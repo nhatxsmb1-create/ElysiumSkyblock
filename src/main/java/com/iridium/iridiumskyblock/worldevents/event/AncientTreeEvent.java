@@ -29,7 +29,7 @@ public class AncientTreeEvent extends IslandWorldEvent {
                     double ang = Math.toRadians(a + l*30);
                     Location p = center.clone().add(Math.cos(ang)*r, l*1.5, Math.sin(ang)*r);
                     fx(p, Particle.HAPPY_VILLAGER, 1, 0.0, 0.0, 0.0, 0.0);
-                    fx(p, Particle.VILLAGER_ANGRY, 1);
+                    fx(p, Particle.ANGRY_VILLAGER, 1);
                 }
             }
         };
