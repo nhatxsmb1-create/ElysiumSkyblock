@@ -10,6 +10,8 @@ import com.iridium.iridiumskyblock.generators.OceanGenerator;
 import com.iridium.iridiumskyblock.generators.VoidGenerator;
 import com.iridium.iridiumskyblock.listeners.*;
 import com.iridium.iridiumskyblock.managers.*;
+import com.iridium.iridiumskyblock.worldevents.WorldEventManager;
+import com.iridium.iridiumskyblock.worldevents.WorldEventsListener;
 import com.iridium.iridiumskyblock.placeholders.IslandPlaceholderBuilder;
 import com.iridium.iridiumskyblock.placeholders.TeamChatPlaceholderBuilder;
 import com.iridium.iridiumskyblock.placeholders.UserPlaceholderBuilder;
@@ -75,6 +77,7 @@ public class IridiumSkyblock extends IridiumTeams<Island, User> {
     private SchematicManager schematicManager;
     private ShopManager<Island, User> shopManager;
     private BiomeManager biomeManager;
+    private WorldEventManager worldEventManager;
     private SupportManager<Island, User> supportManager;
     private TeleportManager<Island, User> teleportManager;
 
@@ -180,6 +183,9 @@ public class IridiumSkyblock extends IridiumTeams<Island, User> {
     @Override
     public void registerListeners() {
         super.registerListeners();
+        this.worldEventManager = new WorldEventManager();
+        this.worldEventManager.start();
+        Bukkit.getPluginManager().registerEvents(new WorldEventsListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerMoveListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new BlockFormListener(), this);
