@@ -13,6 +13,8 @@ import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.List;
@@ -132,8 +134,8 @@ public abstract class IslandWorldEvent {
     }
 
     protected ItemStack named(Material mat, String name, int amount) {
-        org.bukkit.inventory.ItemStack item = new org.bukkit.inventory.ItemStack(mat, amount);
-        org.bukkit.inventory.meta.ItemMeta meta = item.getItemMeta();
+        ItemStack item = new ItemStack(mat, amount);
+        ItemMeta meta = item.getItemMeta();
         if (meta != null) { meta.setDisplayName(name); item.setItemMeta(meta); }
         return item;
     }
